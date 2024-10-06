@@ -1,0 +1,11 @@
+@WhatEverIWant_HostAddress = http://localhost:5100
+
+GET {{WhatEverIWant_HostAddress}}/todos/
+Accept: application/json
+
+###
+
+GET {{WhatEverIWant_HostAddress}}/todos/1
+Accept: application/json
+
+###
