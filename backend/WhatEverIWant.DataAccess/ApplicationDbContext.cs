@@ -43,10 +43,15 @@ namespace WhatEverIWant.DataAccess;
             modelBuilder.ApplyConfiguration(new AudioBookConfiguration());
 
             modelBuilder.ApplyConfiguration(new MovieCollectionConfiguration());
+            modelBuilder.ApplyConfiguration(new MovieCollectionItemConfiguration());
             modelBuilder.ApplyConfiguration(new SeriesCollectionConfiguration());
+            modelBuilder.ApplyConfiguration(new SeriesCollectionItemConfiguration());
             modelBuilder.ApplyConfiguration(new MusicCollectionConfiguration());
+            modelBuilder.ApplyConfiguration(new MusicCollectionItemConfiguration());
             modelBuilder.ApplyConfiguration(new BookCollectionConfiguration());
-            modelBuilder.ApplyConfiguration(new AudioCollectionConfiguration());
+            modelBuilder.ApplyConfiguration(new BookCollectionItemConfiguration());
+            modelBuilder.ApplyConfiguration(new AudioBookCollectionConfiguration());
+            modelBuilder.ApplyConfiguration(new AudioBookCollectionItemConfiguration());
 
             modelBuilder.ApplyConfiguration(new DownloadConfiguration());
             modelBuilder.ApplyConfiguration(new MoviesDownloadConfiguration());

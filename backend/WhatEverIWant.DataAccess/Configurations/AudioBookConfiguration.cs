@@ -32,7 +32,7 @@ public class AudioBookConfiguration : IEntityTypeConfiguration<AudioBook>
             .HasForeignKey(abd => abd.AudioBookId)
             .OnDelete(DeleteBehavior.Cascade);
 
-        builder.HasMany(ab => ab.AudioCollectionItems)
+        builder.HasMany(ab => ab.AudioBookCollectionItems)
             .WithOne(aci => aci.AudioBook)
             .HasForeignKey(aci => aci.AudioBookId)
             .OnDelete(DeleteBehavior.Cascade);

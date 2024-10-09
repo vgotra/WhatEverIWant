@@ -10,5 +10,5 @@ public class AudioBook
     public DateTime? PublishedDate { get; set; }
 
     public ICollection<AudioBookDownload>? AudioBookDownloads { get; set; }
-    public ICollection<AudioBookCollectionItem>? AudioCollectionItems { get; set; }
+    public ICollection<AudioBookCollectionItem>? AudioBookCollectionItems { get; set; }
 }

@@ -12,7 +12,7 @@ builder.Services.AddRepositories();
 builder.Services.AddServices();
 builder.Services.AddMappers(); // If needed
 
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
+builder.Services.AddDbContextPool<ApplicationDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("Default")));
 
 var app = builder.Build();
@@ -23,6 +23,14 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi().CacheOutput();
     app.UseSwaggerUI(options => options.SwaggerEndpoint("/openapi/v1.json", "v1"));
     app.UseReDoc(options => options.SpecUrl("/openapi/v1.json"));
+    
+    // For Testing Purposes
+    /*
+    using var scope = app.Services.CreateScope();
+    var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    context.Database.EnsureCreated();
+    context.Database.Migrate();
+    */
 }
 
 app.Run();
