@@ -1,0 +1,10 @@
+namespace WhatEverIWant.Services.Models.AudioBooks;
+
+public class UpdateAudioBookRequest
+{
+    public string Title { get; set; }
+    public string Author { get; set; }
+    public string ISBN { get; set; }
+    public string Narrator { get; set; }
+    public DateTime? PublishedDate { get; set; }
+}

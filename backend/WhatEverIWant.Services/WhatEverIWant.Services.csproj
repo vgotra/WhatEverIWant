@@ -7,7 +7,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.0-rc.1.24451.1"/>
+        <PackageReference Include="Riok.Mapperly" Version="3.6.0"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\WhatEverIWant.DataAccess\WhatEverIWant.DataAccess.csproj"/>
     </ItemGroup>
 
 </Project>

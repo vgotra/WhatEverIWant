@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhatEverIWant", "WhatEverIW
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhatEverIWant.DataAccess", "WhatEverIWant.DataAccess\WhatEverIWant.DataAccess.csproj", "{019D592A-8722-4AF2-869C-61C911727AFD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhatEverIWant.Services", "WhatEverIWant.Services\WhatEverIWant.Services.csproj", "{E6BFC56A-D769-4CA0-9E89-7B23ECC963F6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{019D592A-8722-4AF2-869C-61C911727AFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{019D592A-8722-4AF2-869C-61C911727AFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{019D592A-8722-4AF2-869C-61C911727AFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6BFC56A-D769-4CA0-9E89-7B23ECC963F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6BFC56A-D769-4CA0-9E89-7B23ECC963F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6BFC56A-D769-4CA0-9E89-7B23ECC963F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6BFC56A-D769-4CA0-9E89-7B23ECC963F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,12 +1,11 @@
 namespace WhatEverIWant.DataAccess.Repositories;
 
-public interface IGenericRepository<TEntity> where TEntity : class
+public interface IGenericRepository<T> where T : class
 {
-    Task<IEnumerable<TEntity>> GetAllAsync();
-    ValueTask<TEntity?> GetByIdAsync(Guid id);
-    Task<IEnumerable<TEntity>> FindAsync(Expression<Func<TEntity, bool>> predicate);
-
-    Task AddAsync(TEntity entity);
-    void Update(TEntity entity);
-    void Remove(TEntity entity);
+    Task<IEnumerable<T>> GetAllAsync();
+    ValueTask<T?> GetByIdAsync(Guid id);
+    Task AddAsync(T entity);
+    void Update(T entity);
+    void Remove(T entity);
+    Task SaveChangesAsync();
 }
