@@ -8,7 +8,6 @@ public static class ServicesConfiguration
     {
         services.AddScoped(typeof(IGenericService<,,,>), typeof(GenericService<,,,>));
             
-        // Register Specific Services
         services.AddScoped<IMovieService, MovieService>();
         services.AddScoped<ISeriesService, SeriesService>();
         services.AddScoped<IMusicService, MusicService>();
