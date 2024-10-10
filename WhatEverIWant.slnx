@@ -1,0 +1,5 @@
+﻿<Solution>
+  <Project Path="WhatEverIWant.DataAccess\WhatEverIWant.DataAccess.csproj" Type="Classic C#" />
+  <Project Path="WhatEverIWant.Services\WhatEverIWant.Services.csproj" Type="Classic C#" />
+  <Project Path="WhatEverIWant\WhatEverIWant.csproj" />
+</Solution>
