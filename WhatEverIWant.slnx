@@ -1,5 +1,6 @@
 ﻿<Solution>
+  <Project Path="WhatEverIWant.Api\WhatEverIWant.Api.csproj" />
+  <Project Path="WhatEverIWant.Web\WhatEverIWant.Web.esproj" Type="{54A90642-561A-4BB1-A94E-469ADEE60C69}"/>
   <Project Path="WhatEverIWant.DataAccess\WhatEverIWant.DataAccess.csproj" Type="Classic C#" />
   <Project Path="WhatEverIWant.Services\WhatEverIWant.Services.csproj" Type="Classic C#" />
-  <Project Path="WhatEverIWant\WhatEverIWant.csproj" />
 </Solution>

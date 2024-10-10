@@ -1,7 +1,7 @@
 using WhatEverIWant.Services;
 using WhatEverIWant.Services.Models.Series;
 
-namespace WhatEverIWant.Api;
+namespace WhatEverIWant.Api.Api;
 
 public static class SeriesApi
 {

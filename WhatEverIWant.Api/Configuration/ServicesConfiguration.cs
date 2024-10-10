@@ -1,6 +1,6 @@
 using WhatEverIWant.Services;
 
-namespace WhatEverIWant.Configuration;
+namespace WhatEverIWant.Api.Configuration;
 
 public static class ServicesConfiguration
 {

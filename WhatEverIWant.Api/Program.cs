@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using WhatEverIWant.Configuration;
+using WhatEverIWant.Api.Configuration;
 using WhatEverIWant.DataAccess;
 
 var builder = WebApplication.CreateSlimBuilder(args);

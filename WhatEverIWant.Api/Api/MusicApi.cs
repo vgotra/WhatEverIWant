@@ -1,7 +1,7 @@
 using WhatEverIWant.Services;
 using WhatEverIWant.Services.Models.Music;
 
-namespace WhatEverIWant.Api;
+namespace WhatEverIWant.Api.Api;
 
 public static class MusicApi
 {

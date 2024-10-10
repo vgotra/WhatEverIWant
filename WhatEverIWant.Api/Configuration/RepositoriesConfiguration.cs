@@ -1,6 +1,6 @@
 using WhatEverIWant.DataAccess.Repositories;
 
-namespace WhatEverIWant.Configuration;
+namespace WhatEverIWant.Api.Configuration;
 
 public static class RepositoriesConfiguration
 {

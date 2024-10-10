@@ -6,7 +6,7 @@ using WhatEverIWant.Services.Models.Movies;
 using WhatEverIWant.Services.Models.Music;
 using WhatEverIWant.Services.Models.Series;
 
-namespace WhatEverIWant.Configuration;
+namespace WhatEverIWant.Api.Configuration;
 
 public static class MapperConfiguration
 {

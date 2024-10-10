@@ -1,6 +1,6 @@
-using WhatEverIWant.Api;
+using WhatEverIWant.Api.Api;
 
-namespace WhatEverIWant.Configuration;
+namespace WhatEverIWant.Api.Configuration;
 
 public static class ApiMapper
 {
