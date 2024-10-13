@@ -1,5 +1,5 @@
-using WhatEverIWant.Services;
-using WhatEverIWant.Services.Models.Series;
+using WhatEverIWant.BusinessLogic;
+using WhatEverIWant.BusinessLogic.Models.Series;
 
 namespace WhatEverIWant.Api.Api;
 

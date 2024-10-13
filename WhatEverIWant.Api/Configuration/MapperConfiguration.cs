@@ -1,10 +1,10 @@
 using WhatEverIWant.DataAccess.Entities;
-using WhatEverIWant.Services.Mappers;
-using WhatEverIWant.Services.Models.AudioBooks;
-using WhatEverIWant.Services.Models.Books;
-using WhatEverIWant.Services.Models.Movies;
-using WhatEverIWant.Services.Models.Music;
-using WhatEverIWant.Services.Models.Series;
+using WhatEverIWant.BusinessLogic.Mappers;
+using WhatEverIWant.BusinessLogic.Models.AudioBooks;
+using WhatEverIWant.BusinessLogic.Models.Books;
+using WhatEverIWant.BusinessLogic.Models.Movies;
+using WhatEverIWant.BusinessLogic.Models.Music;
+using WhatEverIWant.BusinessLogic.Models.Series;
 
 namespace WhatEverIWant.Api.Configuration;
 

@@ -1,9 +1,8 @@
 <Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/1.0.1751888">
+
   <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
     <StartupCommand>bun --bun run dev -- --open</StartupCommand>
-    <!-- Allows the build (or compile) script located on package.json to run on Build -->
-    <ShouldRunBuildScript>false</ShouldRunBuildScript>
-    <!-- Folder where production build objects will be placed -->
-    <BuildOutputFolder>$(MSBuildProjectDirectory)\dist\</BuildOutputFolder>
   </PropertyGroup>
+
 </Project>

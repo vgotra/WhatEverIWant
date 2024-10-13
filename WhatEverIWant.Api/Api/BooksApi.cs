@@ -1,5 +1,5 @@
-using WhatEverIWant.Services;
-using WhatEverIWant.Services.Models.Books;
+using WhatEverIWant.BusinessLogic;
+using WhatEverIWant.BusinessLogic.Models.Books;
 
 namespace WhatEverIWant.Api.Api;
 

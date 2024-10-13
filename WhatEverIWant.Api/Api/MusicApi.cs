@@ -1,5 +1,5 @@
-using WhatEverIWant.Services;
-using WhatEverIWant.Services.Models.Music;
+using WhatEverIWant.BusinessLogic;
+using WhatEverIWant.BusinessLogic.Models.Music;
 
 namespace WhatEverIWant.Api.Api;
 

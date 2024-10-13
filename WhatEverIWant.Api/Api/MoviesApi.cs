@@ -1,5 +1,5 @@
-using WhatEverIWant.Services;
-using WhatEverIWant.Services.Models.Movies;
+using WhatEverIWant.BusinessLogic;
+using WhatEverIWant.BusinessLogic.Models.Movies;
 
 namespace WhatEverIWant.Api.Api;
 

@@ -1,4 +1,4 @@
-using WhatEverIWant.Services;
+using WhatEverIWant.BusinessLogic;
 
 namespace WhatEverIWant.Api.Configuration;
 

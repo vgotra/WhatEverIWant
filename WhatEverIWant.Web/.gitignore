@@ -5,8 +5,7 @@ node_modules
 .vercel
 /.svelte-kit
 /build
-/obj
-bun.lockb
+/obj/**/*
 
 # OS
 .DS_Store
