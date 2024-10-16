@@ -1,6 +1,4 @@
-using Microsoft.EntityFrameworkCore;
 using WhatEverIWant.Api.Configuration;
-using WhatEverIWant.DataAccess;
 
 var builder = WebApplication.CreateSlimBuilder(args);
 
@@ -10,10 +8,9 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddRepositories();
 builder.Services.AddServices();
-builder.Services.AddMappers(); // If needed
+builder.Services.AddMappers();
 
-builder.Services.AddDbContextPool<ApplicationDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("Default")));
+builder.Services.AddDbContext(builder);
 
 var app = builder.Build();
 app.MapApi();

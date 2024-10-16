@@ -1,5 +1,3 @@
-using WhatEverIWant.BusinessLogic;
-
 namespace WhatEverIWant.Api.Configuration;
 
 public static class ServicesConfiguration
