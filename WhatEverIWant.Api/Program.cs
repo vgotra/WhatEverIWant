@@ -9,6 +9,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddRepositories();
 builder.Services.AddServices();
 builder.Services.AddMappers();
+builder.Services.AddHttpClients();
+builder.Services.AddMetadataServices(builder);
 
 builder.Services.AddDbContext(builder);
 

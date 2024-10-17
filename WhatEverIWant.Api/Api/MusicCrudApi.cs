@@ -1,5 +1,6 @@
 using WhatEverIWant.Api.Extensions;
-using WhatEverIWant.BusinessLogic.Models.Music;
+using WhatEverIWant.BusinessLogic.ApiServices;
+using WhatEverIWant.BusinessLogic.Models.Api.Music;
 
 namespace WhatEverIWant.Api.Api;
 

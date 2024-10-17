@@ -1,5 +1,6 @@
 using WhatEverIWant.Api.Extensions;
-using WhatEverIWant.BusinessLogic.Models.Books;
+using WhatEverIWant.BusinessLogic.ApiServices;
+using WhatEverIWant.BusinessLogic.Models.Api.Books;
 
 namespace WhatEverIWant.Api.Api;
 

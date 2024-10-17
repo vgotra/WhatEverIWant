@@ -5,13 +5,13 @@ public static class ApiResultsExtensions
     public static async Task<IResult> OkAsync<T>(this Task<T> task)
     {
         var result = await task;
-        return Results.Ok(result);
+        return TypedResults.Ok(result);
     }
     
     public static async Task<IResult> OkOrNotFoundAsync<T>(this Task<T> task)
     {
         var result = await task;
-        return result != null ? Results.Ok(result) : Results.NotFound();
+        return result != null ? TypedResults.Ok(result) : Results.NotFound();
     }
     
     public static async Task<IResult> CreatedAsync<TResponse>(this Task<TResponse> task, Func<TResponse, string?> uri)

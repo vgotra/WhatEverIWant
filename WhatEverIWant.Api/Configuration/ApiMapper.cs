@@ -1,4 +1,5 @@
 using WhatEverIWant.Api.Api;
+using WhatEverIWant.Api.Api.Metadata;
 
 namespace WhatEverIWant.Api.Configuration;
 
@@ -11,6 +12,8 @@ public static class ApiMapper
         app.MapMusicApi();
         app.MapSeriesApi();
         app.MapBooksApi();
+
+        app.MapExternalMetadataApi();
         
         return app;
     }

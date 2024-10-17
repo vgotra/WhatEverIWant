@@ -1,10 +1,16 @@
 using WhatEverIWant.DataAccess.Entities;
-using WhatEverIWant.BusinessLogic.Mappers;
-using WhatEverIWant.BusinessLogic.Models.AudioBooks;
-using WhatEverIWant.BusinessLogic.Models.Books;
-using WhatEverIWant.BusinessLogic.Models.Movies;
-using WhatEverIWant.BusinessLogic.Models.Music;
-using WhatEverIWant.BusinessLogic.Models.Series;
+using WhatEverIWant.BusinessLogic.Mappers.Api;
+using WhatEverIWant.BusinessLogic.Mappers.Api.Metadata;
+using WhatEverIWant.BusinessLogic.Models.Api.AudioBooks;
+using WhatEverIWant.BusinessLogic.Models.Api.Books;
+using WhatEverIWant.BusinessLogic.Models.Api.Movies;
+using WhatEverIWant.BusinessLogic.Models.Api.Music;
+using WhatEverIWant.BusinessLogic.Models.Api.Series;
+using AudioBookMapper = WhatEverIWant.BusinessLogic.Mappers.Api.AudioBookMapper;
+using BookMapper = WhatEverIWant.BusinessLogic.Mappers.Api.BookMapper;
+using MovieMapper = WhatEverIWant.BusinessLogic.Mappers.Api.MovieMapper;
+using MusicMapper = WhatEverIWant.BusinessLogic.Mappers.Api.MusicMapper;
+using SeriesMapper = WhatEverIWant.BusinessLogic.Mappers.Api.SeriesMapper;
 
 namespace WhatEverIWant.Api.Configuration;
 
@@ -20,6 +26,8 @@ public static class MapperConfiguration
         services.AddScoped<IGenericMapper<CreateMusicRequest, UpdateMusicRequest, MusicResponse, Music>, MusicMapper>();
         services.AddScoped<IGenericMapper<CreateBookRequest, UpdateBookRequest, BookResponse, Book>, BookMapper>();
         services.AddScoped<IGenericMapper<CreateAudioBookRequest, UpdateAudioBookRequest, AudioBookResponse, AudioBook>, AudioBookMapper>();
+        
+        services.AddScoped<IOmdbResponseMapper, OmdbResponseMapper>(); //TODO Move to metadata mapper or make modular
         
         return services;
     }

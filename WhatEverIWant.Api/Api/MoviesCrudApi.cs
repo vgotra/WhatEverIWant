@@ -1,5 +1,6 @@
 using WhatEverIWant.Api.Extensions;
-using WhatEverIWant.BusinessLogic.Models.Movies;
+using WhatEverIWant.BusinessLogic.ApiServices;
+using WhatEverIWant.BusinessLogic.Models.Api.Movies;
 
 namespace WhatEverIWant.Api.Api;
 

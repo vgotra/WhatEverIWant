@@ -1,3 +1,4 @@
+using WhatEverIWant.BusinessLogic.ApiServices;
 namespace WhatEverIWant.Api.Configuration;
 
 public static class ServicesConfiguration
@@ -11,7 +12,7 @@ public static class ServicesConfiguration
         services.AddScoped<IMusicService, MusicService>();
         services.AddScoped<IBookService, BookService>();
         services.AddScoped<IAudioBookService, AudioBookService>();
-
+      
         return services;
     }
 }
