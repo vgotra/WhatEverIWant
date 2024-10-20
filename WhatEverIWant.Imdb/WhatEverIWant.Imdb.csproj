@@ -7,7 +7,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\WhatEverIWant.Common\WhatEverIWant.Common.csproj" />
+      <Folder Include="DataAccess\Entities\" />
+      <Folder Include="Services\" />
+    </ItemGroup>
+    
+    <ItemGroup>
       <ProjectReference Include="..\WhatEverIWant.DataAccess.Common\WhatEverIWant.DataAccess.Common.csproj" />
     </ItemGroup>
 

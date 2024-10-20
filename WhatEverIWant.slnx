@@ -2,8 +2,10 @@
   <Project Path="WhatEverIWant.Api\WhatEverIWant.Api.csproj" />
   <Project Path="WhatEverIWant.BusinessLogic\WhatEverIWant.BusinessLogic.csproj" />
   <Project Path="WhatEverIWant.Common\WhatEverIWant.Common.csproj" Type="Classic C#" />
+  <Project Path="WhatEverIWant.DataAccess.Common\WhatEverIWant.DataAccess.Common.csproj" Type="Classic C#" />
   <Project Path="WhatEverIWant.DataAccess.Migrations\WhatEverIWant.DataAccess.Migrations.csproj" Type="Classic C#" />
   <Project Path="WhatEverIWant.DataAccess\WhatEverIWant.DataAccess.csproj" />
+  <Project Path="WhatEverIWant.Imdb\WhatEverIWant.Imdb.csproj" Type="Classic C#" />
   <Project Path="WhatEverIWant.Tests\WhatEverIWant.Tests.csproj" Type="Classic C#" />
   <Project Path="WhatEverIWant.Web\WhatEverIWant.Web.esproj" />
 </Solution>
