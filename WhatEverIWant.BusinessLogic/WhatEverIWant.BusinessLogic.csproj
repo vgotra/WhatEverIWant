@@ -8,7 +8,7 @@
 
     <ItemGroup>
         <PackageReference Include="Riok.Mapperly" Version="4.1.1" />
-        <PackageReference Include="Microsoft.Extensions.Http" Version="9.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Http" Version="9.0.1" />
     </ItemGroup>
 
     <ItemGroup>

@@ -4,3 +4,5 @@
 
 - SwaggerUI: `/swagger`
 - ReDoc: `/redoc`
+
+NOTES: Postponed. This will be improved later

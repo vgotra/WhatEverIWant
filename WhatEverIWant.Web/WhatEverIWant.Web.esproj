@@ -1,8 +1,0 @@
-﻿<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/1.0.2060508">
-	<PropertyGroup>
-		<TargetFramework>net9.0</TargetFramework>
-		<ShouldRunNpmInstall>false</ShouldRunNpmInstall>
-		<ShouldRunBuildScript>false</ShouldRunBuildScript>
-		<StartupCommand>bun --bun run dev -- --open</StartupCommand>
-	</PropertyGroup>
-</Project>
