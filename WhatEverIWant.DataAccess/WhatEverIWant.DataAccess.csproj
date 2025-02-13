@@ -6,6 +6,13 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup Condition="'$(Configuration)' == 'Debug'">
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.1">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+    </ItemGroup>
+    
     <ItemGroup>
       <ProjectReference Include="..\WhatEverIWant.Common\WhatEverIWant.Common.csproj" />
       <ProjectReference Include="..\WhatEverIWant.DataAccess.Common\WhatEverIWant.DataAccess.Common.csproj" />

@@ -8,20 +8,10 @@ public class MovieCollectionConfiguration : IEntityTypeConfiguration<MovieCollec
 
         builder.HasKey(mc => mc.Id);
 
-        builder.Property(mc => mc.Name)
-            .IsRequired()
-            .HasMaxLength(255);
+        builder.Property(mc => mc.Name).IsRequired().HasMaxLength(255);
+        builder.Property(mc => mc.Description).HasMaxLength(2000).IsRequired(false);
+        builder.Property(mc => mc.CreatedAt).HasDefaultValueSql("CURRENT_TIMESTAMP");
 
-        builder.Property(mc => mc.Description)
-            .HasMaxLength(2000)
-            .IsRequired(false);
-
-        builder.Property(mc => mc.CreatedAt)
-            .HasDefaultValueSql("CURRENT_TIMESTAMP");
-
-        builder.HasMany(mc => mc.MovieCollectionItems)
-            .WithOne(mci => mci.MovieCollection)
-            .HasForeignKey(mci => mci.MovieCollectionId)
-            .OnDelete(DeleteBehavior.Cascade);
+        builder.HasMany(ne => ne.Items).WithMany(ne => ne.Collections);
     }
 }

@@ -7,7 +7,7 @@ public class ApplicationDbContextDesignFactory : IDesignTimeDbContextFactory<App
     public ApplicationDbContext CreateDbContext(string[] args)
     {
         var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
-        optionsBuilder.UseSqlite("Data Source=:memory:");
+        optionsBuilder.UseSqlite("Data Source=test.db");
 
         return new ApplicationDbContext(optionsBuilder.Options);
     }

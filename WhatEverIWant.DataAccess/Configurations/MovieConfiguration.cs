@@ -8,25 +8,8 @@ public class MovieConfiguration : IEntityTypeConfiguration<Movie>
 
         builder.HasKey(m => m.Id);
 
-        builder.Property(m => m.Title)
-            .IsRequired()
-            .HasMaxLength(255);
-
-        builder.Property(m => m.ReleaseDate)
-            .IsRequired(false);
-
-        builder.Property(m => m.Description)
-            .HasMaxLength(2000)
-            .IsRequired(false);
-
-        builder.HasMany(m => m.MoviesDownloads)
-            .WithOne(md => md.Movie)
-            .HasForeignKey(md => md.MovieId)
-            .OnDelete(DeleteBehavior.Cascade);
-
-        builder.HasMany(m => m.MovieCollectionItems)
-            .WithOne(mci => mci.Movie)
-            .HasForeignKey(mci => mci.MovieId)
-            .OnDelete(DeleteBehavior.Cascade);
+        builder.Property(m => m.Title).IsRequired().HasMaxLength(255);
+        builder.Property(m => m.ReleaseDate).IsRequired(false);
+        builder.Property(m => m.Description).HasMaxLength(2000).IsRequired(false);
     }
 }

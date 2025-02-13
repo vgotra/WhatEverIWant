@@ -8,20 +8,10 @@ public class MusicCollectionConfiguration : IEntityTypeConfiguration<MusicCollec
 
         builder.HasKey(mc => mc.Id);
 
-        builder.Property(mc => mc.Name)
-            .IsRequired()
-            .HasMaxLength(255);
+        builder.Property(mc => mc.Name).IsRequired().HasMaxLength(255);
+        builder.Property(mc => mc.Description).HasMaxLength(2000).IsRequired(false);
+        builder.Property(mc => mc.CreatedAt).HasDefaultValueSql("CURRENT_TIMESTAMP");
 
-        builder.Property(mc => mc.Description)
-            .HasMaxLength(2000)
-            .IsRequired(false);
-
-        builder.Property(mc => mc.CreatedAt)
-            .HasDefaultValueSql("CURRENT_TIMESTAMP");
-
-        builder.HasMany(mc => mc.MusicCollectionItems)
-            .WithOne(mci => mci.MusicCollection)
-            .HasForeignKey(mci => mci.MusicCollectionId)
-            .OnDelete(DeleteBehavior.Cascade);
+        builder.HasMany(ne => ne.Items).WithMany(ne => ne.Collections);
     }
 }

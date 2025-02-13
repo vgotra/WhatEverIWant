@@ -1,16 +1,17 @@
 using WhatEverIWant.DataAccess.Entities;
-using WhatEverIWant.BusinessLogic.Mappers.Api;
-using WhatEverIWant.BusinessLogic.Mappers.Api.Metadata;
+using WhatEverIWant.BusinessLogic.Mappers.Services;
+using WhatEverIWant.BusinessLogic.Mappers.Services.Metadata;
 using WhatEverIWant.BusinessLogic.Models.Api.AudioBooks;
 using WhatEverIWant.BusinessLogic.Models.Api.Books;
 using WhatEverIWant.BusinessLogic.Models.Api.Movies;
 using WhatEverIWant.BusinessLogic.Models.Api.Music;
-using WhatEverIWant.BusinessLogic.Models.Api.Series;
-using AudioBookMapper = WhatEverIWant.BusinessLogic.Mappers.Api.AudioBookMapper;
-using BookMapper = WhatEverIWant.BusinessLogic.Mappers.Api.BookMapper;
-using MovieMapper = WhatEverIWant.BusinessLogic.Mappers.Api.MovieMapper;
-using MusicMapper = WhatEverIWant.BusinessLogic.Mappers.Api.MusicMapper;
-using SeriesMapper = WhatEverIWant.BusinessLogic.Mappers.Api.SeriesMapper;
+using WhatEverIWant.BusinessLogic.Models.Api.TvShows;
+using AudioBookMapper = WhatEverIWant.BusinessLogic.Mappers.Services.AudioBookMapper;
+using BookMapper = WhatEverIWant.BusinessLogic.Mappers.Services.BookMapper;
+using MovieMapper = WhatEverIWant.BusinessLogic.Mappers.Services.MovieMapper;
+using MusicMapper = WhatEverIWant.BusinessLogic.Mappers.Services.MusicMapper;
+using OmdbResponseMapper = WhatEverIWant.BusinessLogic.Mappers.Services.Metadata.OmdbResponseMapper;
+using TvShowsMapper = WhatEverIWant.BusinessLogic.Mappers.Services.TvShowsMapper;
 
 namespace WhatEverIWant.Api.Configuration;
 
@@ -22,7 +23,7 @@ public static class MapperConfiguration
         // No explicit registration needed unless custom behavior is required
 
         services.AddScoped<IGenericMapper<CreateMovieRequest, UpdateMovieRequest, MovieResponse, Movie>, MovieMapper>();
-        services.AddScoped<IGenericMapper<CreateSeriesRequest, UpdateSeriesRequest, SeriesResponse, Series>, SeriesMapper>();
+        services.AddScoped<IGenericMapper<CreateTvShowRequest, UpdateTvShowRequest, TvShowResponse, TvShow>, TvShowsMapper>();
         services.AddScoped<IGenericMapper<CreateMusicRequest, UpdateMusicRequest, MusicResponse, Music>, MusicMapper>();
         services.AddScoped<IGenericMapper<CreateBookRequest, UpdateBookRequest, BookResponse, Book>, BookMapper>();
         services.AddScoped<IGenericMapper<CreateAudioBookRequest, UpdateAudioBookRequest, AudioBookResponse, AudioBook>, AudioBookMapper>();
