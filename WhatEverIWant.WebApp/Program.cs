@@ -1,18 +1,23 @@
-using Microsoft.AspNetCore.Components.Web;
-using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using WhatEverIWant.WebApp.Components;
 
-namespace WhatEverIWant.WebApp;
+var builder = WebApplication.CreateBuilder(args);
 
-public class Program
+builder.Services.AddRazorComponents().AddInteractiveServerComponents();
+
+var app = builder.Build();
+
+if (!app.Environment.IsDevelopment())
 {
-    public static async Task Main(string[] args)
-    {
-        var builder = WebAssemblyHostBuilder.CreateDefault(args);
-        builder.RootComponents.Add<App>("#app");
-        builder.RootComponents.Add<HeadOutlet>("head::after");
-
-        builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-
-        await builder.Build().RunAsync();
-    }
+    app.UseExceptionHandler("/Error", createScopeForErrors: true);
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseHsts();
 }
+
+app.UseHttpsRedirection();
+
+app.UseAntiforgery();
+
+app.MapStaticAssets();
+app.MapRazorComponents<App>().AddInteractiveServerRenderMode();
+
+await app.RunAsync();
