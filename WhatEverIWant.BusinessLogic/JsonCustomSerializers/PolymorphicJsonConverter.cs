@@ -1,4 +1,4 @@
-using WhatEverIWant.BusinessLogic.Models.Api.Metadata;
+using WhatEverIWant.BusinessLogic.Models.Services.Metadata;
 
 namespace WhatEverIWant.BusinessLogic.JsonCustomSerializers;
 

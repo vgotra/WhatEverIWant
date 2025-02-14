@@ -1,5 +1,5 @@
 using WhatEverIWant.Api.Extensions;
-using WhatEverIWant.BusinessLogic.Models.Api.AudioBooks;
+using WhatEverIWant.BusinessLogic.Models.Services.AudioBooks;
 using WhatEverIWant.BusinessLogic.Services;
 
 namespace WhatEverIWant.Api.Api;
@@ -16,7 +16,7 @@ public static class AudioBooksCrudApi
             .WithEndpointMetadata("GetAllAudioBooks", "Retrieves all audiobooks.")
             .Produces<IEnumerable<AudioBookResponse>>();
 
-        group.MapGet("/{id}", async Task (Guid id, IAudioBookService audioBookService) => await audioBookService.GetByIdAsync(id).OkOrNotFoundAsync())
+        group.MapGet("/{id:long}", async Task (long id, IAudioBookService audioBookService) => await audioBookService.GetByIdAsync(id).OkOrNotFoundAsync())
             .WithEndpointMetadata("GetAudioBookById", "Retrieves a specific audiobook by unique id.")
             .Produces<AudioBookResponse>()
             .Produces(StatusCodes.Status404NotFound);
@@ -26,12 +26,12 @@ public static class AudioBooksCrudApi
             .Accepts<CreateAudioBookRequest>("application/json")
             .Produces<AudioBookResponse>(StatusCodes.Status201Created);
 
-        group.MapPut("/{id}", async Task (Guid id, UpdateAudioBookRequest request, IAudioBookService audioBookService) => await audioBookService.UpdateAsync(id, request).NoContentOrNoFoundAsync())
+        group.MapPut("/{id:long}", async Task (long id, UpdateAudioBookRequest request, IAudioBookService audioBookService) => await audioBookService.UpdateAsync(id, request).NoContentOrNoFoundAsync())
             .WithEndpointMetadata("UpdateAudioBook", "Updates an existing audiobook.")
             .Accepts<UpdateAudioBookRequest>("application/json")
             .Produces(StatusCodes.Status204NoContent, StatusCodes.Status404NotFound);
 
-        group.MapDelete("/{id}", async Task (Guid id, IAudioBookService audioBookService) => await audioBookService.DeleteAsync(id).NoContentOrNoFoundAsync())
+        group.MapDelete("/{id:long}", async Task (long id, IAudioBookService audioBookService) => await audioBookService.DeleteAsync(id).NoContentOrNoFoundAsync())
             .WithEndpointMetadata("DeleteAudioBook", "Deletes a specific audiobook by unique id.")
             .Produces(StatusCodes.Status204NoContent, StatusCodes.Status404NotFound);
     }

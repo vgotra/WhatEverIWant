@@ -9,8 +9,8 @@ public class BookConfiguration : IEntityTypeConfiguration<Book>
         builder.HasKey(b => b.Id);
 
         builder.Property(b => b.Title).IsRequired().HasMaxLength(255);
-        builder.Property(b => b.Author).HasMaxLength(255).IsRequired(false);
+        builder.Property(b => b.Author).HasMaxLength(255).IsRequired();
         builder.Property(b => b.Isbn).HasMaxLength(13).IsRequired(false);
-        builder.Property(b => b.PublishedDate).IsRequired(false);
+        builder.Property(b => b.Year).IsRequired(false);
     }
 }

@@ -1,11 +1,11 @@
 using WhatEverIWant.DataAccess.Entities;
 using WhatEverIWant.BusinessLogic.Mappers.Services;
 using WhatEverIWant.BusinessLogic.Mappers.Services.Metadata;
-using WhatEverIWant.BusinessLogic.Models.Api.AudioBooks;
-using WhatEverIWant.BusinessLogic.Models.Api.Books;
-using WhatEverIWant.BusinessLogic.Models.Api.Movies;
-using WhatEverIWant.BusinessLogic.Models.Api.Music;
-using WhatEverIWant.BusinessLogic.Models.Api.TvShows;
+using WhatEverIWant.BusinessLogic.Models.Services.AudioBooks;
+using WhatEverIWant.BusinessLogic.Models.Services.Books;
+using WhatEverIWant.BusinessLogic.Models.Services.Movies;
+using WhatEverIWant.BusinessLogic.Models.Services.Music;
+using WhatEverIWant.BusinessLogic.Models.Services.TvShows;
 using AudioBookMapper = WhatEverIWant.BusinessLogic.Mappers.Services.AudioBookMapper;
 using BookMapper = WhatEverIWant.BusinessLogic.Mappers.Services.BookMapper;
 using MovieMapper = WhatEverIWant.BusinessLogic.Mappers.Services.MovieMapper;

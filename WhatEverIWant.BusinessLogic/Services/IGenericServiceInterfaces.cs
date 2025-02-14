@@ -1,8 +1,8 @@
-using WhatEverIWant.BusinessLogic.Models.Api.AudioBooks;
-using WhatEverIWant.BusinessLogic.Models.Api.Books;
-using WhatEverIWant.BusinessLogic.Models.Api.Movies;
-using WhatEverIWant.BusinessLogic.Models.Api.Music;
-using WhatEverIWant.BusinessLogic.Models.Api.TvShows;
+using WhatEverIWant.BusinessLogic.Models.Services.AudioBooks;
+using WhatEverIWant.BusinessLogic.Models.Services.Books;
+using WhatEverIWant.BusinessLogic.Models.Services.Movies;
+using WhatEverIWant.BusinessLogic.Models.Services.Music;
+using WhatEverIWant.BusinessLogic.Models.Services.TvShows;
 using WhatEverIWant.DataAccess.Entities;
 
 namespace WhatEverIWant.BusinessLogic.Services;

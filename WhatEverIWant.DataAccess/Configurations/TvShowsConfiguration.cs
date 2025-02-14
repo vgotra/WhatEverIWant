@@ -9,8 +9,8 @@ public class TvShowsConfiguration : IEntityTypeConfiguration<TvShow>
         builder.HasKey(s => s.Id);
 
         builder.Property(s => s.Title).IsRequired().HasMaxLength(255);
-        builder.Property(s => s.StartDate).IsRequired(false);
-        builder.Property(s => s.EndDate).IsRequired(false);
         builder.Property(s => s.Description).HasMaxLength(2000).IsRequired(false);
+        builder.Property(s => s.StartYear).IsRequired(false);
+        builder.Property(s => s.EndYear).IsRequired(false);
     }
 }

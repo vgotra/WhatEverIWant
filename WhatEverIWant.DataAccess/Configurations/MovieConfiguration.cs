@@ -9,7 +9,7 @@ public class MovieConfiguration : IEntityTypeConfiguration<Movie>
         builder.HasKey(m => m.Id);
 
         builder.Property(m => m.Title).IsRequired().HasMaxLength(255);
-        builder.Property(m => m.ReleaseDate).IsRequired(false);
-        builder.Property(m => m.Description).HasMaxLength(2000).IsRequired(false);
+        builder.Property(m => m.Description).HasMaxLength(2000).IsRequired();
+        builder.Property(m => m.Year).IsRequired(false);
     }
 }

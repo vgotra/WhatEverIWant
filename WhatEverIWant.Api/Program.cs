@@ -6,7 +6,6 @@ builder.Services.AddOpenApi();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddRepositories();
 builder.Services.AddServices();
 builder.Services.AddMappers();
 builder.Services.AddHttpClients();

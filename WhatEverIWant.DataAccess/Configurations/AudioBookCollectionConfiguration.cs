@@ -10,7 +10,6 @@ public class AudioBookCollectionConfiguration : IEntityTypeConfiguration<AudioBo
 
         builder.Property(e => e.Name).IsRequired().HasMaxLength(255);
         builder.Property(e => e.Description).HasMaxLength(2000).IsRequired(false);
-        builder.Property(e => e.CreatedAt).HasDefaultValueSql("CURRENT_TIMESTAMP");
 
         builder.HasMany(ne => ne.Items).WithMany(ne => ne.Collections);
     }

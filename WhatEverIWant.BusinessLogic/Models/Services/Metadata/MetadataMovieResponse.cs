@@ -1,6 +1,6 @@
 using WhatEverIWant.BusinessLogic.JsonCustomSerializers.Omdb;
 
-namespace WhatEverIWant.BusinessLogic.Models.Api.Metadata;
+namespace WhatEverIWant.BusinessLogic.Models.Services.Metadata;
 
 public class MetadataMovieResponse : MetadataItemResponse
 {

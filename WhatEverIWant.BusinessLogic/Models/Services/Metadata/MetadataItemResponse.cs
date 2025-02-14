@@ -1,6 +1,6 @@
 using WhatEverIWant.BusinessLogic.JsonCustomSerializers;
 
-namespace WhatEverIWant.BusinessLogic.Models.Api.Metadata;
+namespace WhatEverIWant.BusinessLogic.Models.Services.Metadata;
 
 public class MetadataItemResponse
 {

@@ -11,6 +11,6 @@ public class MusicConfiguration : IEntityTypeConfiguration<Music>
         builder.Property(m => m.Title).IsRequired().HasMaxLength(255);
         builder.Property(m => m.Artist).HasMaxLength(255).IsRequired(false);
         builder.Property(m => m.Album).HasMaxLength(255).IsRequired(false);
-        builder.Property(m => m.ReleaseDate).IsRequired(false);
+        builder.Property(m => m.Year).IsRequired(false);
     }
 }

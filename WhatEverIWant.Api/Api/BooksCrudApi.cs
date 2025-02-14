@@ -1,5 +1,5 @@
 using WhatEverIWant.Api.Extensions;
-using WhatEverIWant.BusinessLogic.Models.Api.Books;
+using WhatEverIWant.BusinessLogic.Models.Services.Books;
 using WhatEverIWant.BusinessLogic.Services;
 
 namespace WhatEverIWant.Api.Api;
@@ -16,7 +16,7 @@ public static class BooksCrudApi
             .WithEndpointMetadata("GetAllBooks", "Retrieves all books.")
             .Produces<IEnumerable<BookResponse>>();
 
-        group.MapGet("/{id}", async Task (Guid id, IBookService bookService) => await bookService.GetByIdAsync(id).OkOrNotFoundAsync())
+        group.MapGet("/{id:long}", async Task (long id, IBookService bookService) => await bookService.GetByIdAsync(id).OkOrNotFoundAsync())
             .WithEndpointMetadata("GetBookById", "Retrieves a specific book by unique id.")
             .Produces<BookResponse>()
             .Produces(StatusCodes.Status404NotFound);
@@ -26,12 +26,12 @@ public static class BooksCrudApi
             .Accepts<CreateBookRequest>("application/json")
             .Produces<BookResponse>(StatusCodes.Status201Created);
 
-        group.MapPut("/{id}", async Task (Guid id, UpdateBookRequest request, IBookService bookService) => await bookService.UpdateAsync(id, request).NoContentOrNoFoundAsync())
+        group.MapPut("/{id:long}", async Task (long id, UpdateBookRequest request, IBookService bookService) => await bookService.UpdateAsync(id, request).NoContentOrNoFoundAsync())
             .WithEndpointMetadata("UpdateBook", "Updates an existing book.")
             .Accepts<UpdateBookRequest>("application/json")
             .Produces(StatusCodes.Status204NoContent, StatusCodes.Status404NotFound);
 
-        group.MapDelete("/{id}", async Task (Guid id, IBookService bookService) => await bookService.DeleteAsync(id).NoContentOrNoFoundAsync())
+        group.MapDelete("/{id:long}", async Task (long id, IBookService bookService) => await bookService.DeleteAsync(id).NoContentOrNoFoundAsync())
             .WithEndpointMetadata("DeleteBook", "Deletes a specific book by unique id.")
             .Produces(StatusCodes.Status204NoContent, StatusCodes.Status404NotFound);
     }

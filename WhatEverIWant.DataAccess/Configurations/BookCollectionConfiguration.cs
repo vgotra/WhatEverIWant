@@ -10,7 +10,6 @@ public class BookCollectionConfiguration : IEntityTypeConfiguration<BookCollecti
 
         builder.Property(bc => bc.Name).IsRequired().HasMaxLength(255);
         builder.Property(bc => bc.Description).HasMaxLength(2000).IsRequired(false);
-        builder.Property(bc => bc.CreatedAt).HasDefaultValueSql("CURRENT_TIMESTAMP");
 
         builder.HasMany(ne => ne.Items).WithMany(ne => ne.Collections);
     }

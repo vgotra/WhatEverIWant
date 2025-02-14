@@ -1,6 +1,6 @@
 using WhatEverIWant.BusinessLogic.Mappers.Services.Metadata;
-using WhatEverIWant.BusinessLogic.Models.Api.Metadata;
 using WhatEverIWant.BusinessLogic.Models.External.Omdb;
+using WhatEverIWant.BusinessLogic.Models.Services.Metadata;
 
 namespace WhatEverIWant.BusinessLogic.ExternalMetadataServices;
 

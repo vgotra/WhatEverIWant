@@ -10,7 +10,6 @@ public class MovieCollectionConfiguration : IEntityTypeConfiguration<MovieCollec
 
         builder.Property(mc => mc.Name).IsRequired().HasMaxLength(255);
         builder.Property(mc => mc.Description).HasMaxLength(2000).IsRequired(false);
-        builder.Property(mc => mc.CreatedAt).HasDefaultValueSql("CURRENT_TIMESTAMP");
 
         builder.HasMany(ne => ne.Items).WithMany(ne => ne.Collections);
     }
