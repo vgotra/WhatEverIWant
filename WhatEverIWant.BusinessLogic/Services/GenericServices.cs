@@ -4,22 +4,21 @@ using WhatEverIWant.BusinessLogic.Models.Services.Books;
 using WhatEverIWant.BusinessLogic.Models.Services.Movies;
 using WhatEverIWant.BusinessLogic.Models.Services.Music;
 using WhatEverIWant.BusinessLogic.Models.Services.TvShows;
-using WhatEverIWant.DataAccess;
 using WhatEverIWant.DataAccess.Entities;
 
 namespace WhatEverIWant.BusinessLogic.Services;
 
-public class MovieService(ApplicationDbContext dbContext, IGenericMapper<CreateMovieRequest, UpdateMovieRequest, MovieResponse, Movie> mapper)
-    : GenericService<CreateMovieRequest, UpdateMovieRequest, MovieResponse, Movie>(dbContext, mapper), IMovieService;
+public class MovieService(ApplicationDbContext dbContext, IGenericMapper<CreateMovieRequest, UpdateMovieRequest, MovieResponse, Movie> mapper, ISnowflakeIdGenerator idGenerator)
+    : GenericService<CreateMovieRequest, UpdateMovieRequest, MovieResponse, Movie>(dbContext, mapper, idGenerator), IMovieService;
 
-public class TvShowsService(ApplicationDbContext dbContext, IGenericMapper<CreateTvShowRequest, UpdateTvShowRequest, TvShowResponse, TvShow> mapper)
-    : GenericService<CreateTvShowRequest, UpdateTvShowRequest, TvShowResponse, TvShow>(dbContext, mapper), ITvShowsService;
-    
-public class MusicService(ApplicationDbContext dbContext, IGenericMapper<CreateMusicRequest, UpdateMusicRequest, MusicResponse, Music> mapper)
-    : GenericService<CreateMusicRequest, UpdateMusicRequest, MusicResponse, Music>(dbContext, mapper), IMusicService;
-    
-public class BookService(ApplicationDbContext dbContext, IGenericMapper<CreateBookRequest, UpdateBookRequest, BookResponse, Book> mapper)
-    : GenericService<CreateBookRequest, UpdateBookRequest, BookResponse, Book>(dbContext, mapper), IBookService;
-    
-public class AudioBookService(ApplicationDbContext dbContext, IGenericMapper<CreateAudioBookRequest, UpdateAudioBookRequest, AudioBookResponse, AudioBook> mapper)
-    : GenericService<CreateAudioBookRequest, UpdateAudioBookRequest, AudioBookResponse, AudioBook>(dbContext, mapper), IAudioBookService;
+public class TvShowsService(ApplicationDbContext dbContext, IGenericMapper<CreateTvShowRequest, UpdateTvShowRequest, TvShowResponse, TvShow> mapper, ISnowflakeIdGenerator idGenerator)
+    : GenericService<CreateTvShowRequest, UpdateTvShowRequest, TvShowResponse, TvShow>(dbContext, mapper, idGenerator), ITvShowsService;
+
+public class MusicService(ApplicationDbContext dbContext, IGenericMapper<CreateMusicRequest, UpdateMusicRequest, MusicResponse, Music> mapper, ISnowflakeIdGenerator idGenerator)
+    : GenericService<CreateMusicRequest, UpdateMusicRequest, MusicResponse, Music>(dbContext, mapper, idGenerator), IMusicService;
+
+public class BookService(ApplicationDbContext dbContext, IGenericMapper<CreateBookRequest, UpdateBookRequest, BookResponse, Book> mapper, ISnowflakeIdGenerator idGenerator)
+    : GenericService<CreateBookRequest, UpdateBookRequest, BookResponse, Book>(dbContext, mapper, idGenerator), IBookService;
+
+public class AudioBookService(ApplicationDbContext dbContext, IGenericMapper<CreateAudioBookRequest, UpdateAudioBookRequest, AudioBookResponse, AudioBook> mapper, ISnowflakeIdGenerator idGenerator)
+    : GenericService<CreateAudioBookRequest, UpdateAudioBookRequest, AudioBookResponse, AudioBook>(dbContext, mapper, idGenerator), IAudioBookService;

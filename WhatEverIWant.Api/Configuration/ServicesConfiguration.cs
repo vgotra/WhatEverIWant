@@ -1,4 +1,5 @@
 using WhatEverIWant.BusinessLogic.Services;
+using WhatEverIWant.Common;
 
 namespace WhatEverIWant.Api.Configuration;
 
@@ -6,6 +7,8 @@ public static class ServicesConfiguration
 {
     public static IServiceCollection AddServices(this IServiceCollection services)
     {
+        services.AddSingleton<ISnowflakeIdGenerator, SnowflakeIdGenerator>();
+        
         services.AddScoped(typeof(IGenericService<,,,>), typeof(GenericService<,,,>));
             
         services.AddScoped<IMovieService, MovieService>();

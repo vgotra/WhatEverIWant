@@ -1,26 +1,26 @@
 using Microsoft.EntityFrameworkCore;
 using WhatEverIWant.BusinessLogic.Mappers.Services;
-using WhatEverIWant.DataAccess;
+using WhatEverIWant.DataAccess.Entities;
 
 namespace WhatEverIWant.BusinessLogic.Services;
 
 public class GenericService<TCreate, TUpdate, TResponse, TEntity> : IGenericService<TCreate, TUpdate, TResponse, TEntity>
-    where TEntity : class
+    where TEntity : class, IEntityBase<long>
 {
-    
-    private readonly DbSet<TEntity> _dbSet;
     private readonly ApplicationDbContext _dbContext;
     private readonly IGenericMapper<TCreate, TUpdate, TResponse, TEntity> _mapper;
+    private readonly DbSet<TEntity> _dbSet;
+    private readonly ISnowflakeIdGenerator _idGenerator;
 
-    protected GenericService(ApplicationDbContext dbContext, IGenericMapper<TCreate, TUpdate, TResponse, TEntity> mapper)
+    protected GenericService(ApplicationDbContext dbContext, IGenericMapper<TCreate, TUpdate, TResponse, TEntity> mapper, ISnowflakeIdGenerator idGenerator)
     {
         ArgumentNullException.ThrowIfNull(dbContext, nameof(dbContext));
         ArgumentNullException.ThrowIfNull(mapper, nameof(mapper));
         
         _dbContext = dbContext;
         _mapper = mapper;
-        
         _dbSet = dbContext.Set<TEntity>();
+        _idGenerator = idGenerator;
     }
 
     public async Task<IEnumerable<TResponse>> GetAllAsync()
@@ -38,6 +38,7 @@ public class GenericService<TCreate, TUpdate, TResponse, TEntity> : IGenericServ
     public async Task<TResponse> CreateAsync(TCreate createModel)
     {
         var entity = _mapper.ToEntity(createModel);
+        entity.Id = _idGenerator.NextId();
         await _dbSet.AddAsync(entity);
         await _dbContext.SaveChangesAsync();
         return _mapper.ToResponse(entity);

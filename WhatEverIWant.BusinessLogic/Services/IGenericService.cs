@@ -1,6 +1,9 @@
+using WhatEverIWant.DataAccess.Entities;
+
 namespace WhatEverIWant.BusinessLogic.Services;
 
-public interface IGenericService<TCreate, TUpdate, TResponse, TEntity> where TEntity : class
+// ReSharper disable once UnusedTypeParameter
+public interface IGenericService<TCreate, TUpdate, TResponse, TEntity> where TEntity : class, IEntityBase<long>
 {
     Task<IEnumerable<TResponse>> GetAllAsync();
     Task<TResponse?> GetByIdAsync(long id);

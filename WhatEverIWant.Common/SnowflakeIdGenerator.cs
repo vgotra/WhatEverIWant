@@ -1,92 +1,65 @@
-using System;
-using System.Threading;
+namespace WhatEverIWant.Common;
 
-public class SnowflakeIdGenerator
+public class SnowflakeIdGenerator : ISnowflakeIdGenerator
 {
-    private readonly long epoch = 1609459200000L;
-    private readonly int workerIdBits = 5;
-    private readonly int datacenterIdBits = 5;
-    private readonly int sequenceBits = 12;
+    private const long Epoch = 1609459200000L; // Jan 01 2021 00:00:00 UTC
+    private const int WorkerIdBits = 5;
+    private const int DatacenterIdBits = 5;
+    private const int SequenceBits = 12;
+    private const long SequenceMask = (1L << 12) - 1;    // Max sequence number (4095)
 
-    private readonly long maxWorkerId = (1L << 5) - 1;      // Max worker ID (31)
-    private readonly long maxDatacenterId = (1L << 5) - 1;  // Max datacenter ID (31)
-    private readonly long sequenceMask = (1L << 12) - 1;    // Max sequence number (4095)
+    private const long WorkerId = 1;
+    private const long DatacenterId = 1;
 
-    private long lastTimestamp = -1L;
-    private long sequence = 0L;
-
-    private readonly SpinLock spinLock = new SpinLock(false);
-
-    public long WorkerId { get; }
-    public long DatacenterId { get; }
-
-    public SnowflakeIdGenerator(long workerId, long datacenterId)
-    {
-        if (workerId > maxWorkerId || workerId < 0)
-            throw new ArgumentException($"Worker ID must be between 0 and {maxWorkerId}");
-
-        if (datacenterId > maxDatacenterId || datacenterId < 0)
-            throw new ArgumentException($"Datacenter ID must be between 0 and {maxDatacenterId}");
-
-        WorkerId = workerId;
-        DatacenterId = datacenterId;
-    }
+    private long _lastTimestamp = -1L;
+    private long _sequence = 0L;
+    
+    private SpinLock _spinLock = new(false);
 
     public long NextId()
     {
-        bool lockTaken = false;
+        //TODO Check it later
+        var lockTaken = false;
         try
         {
-            spinLock.Enter(ref lockTaken);
+            _spinLock.Enter(ref lockTaken);
 
-            long timestamp = GetCurrentTimestamp();
+            var timestamp = GetCurrentTimestamp();
+            if (timestamp < _lastTimestamp)
+                throw new InvalidOperationException("Clock moved backwards. Refusing to generate ID.");
 
-            if (timestamp < lastTimestamp)
+            if (timestamp == _lastTimestamp)
             {
-                throw new Exception("Clock moved backwards. Refusing to generate ID.");
-            }
-
-            if (timestamp == lastTimestamp)
-            {
-                sequence = (sequence + 1) & sequenceMask;
-                if (sequence == 0) // Sequence overflow, wait for next millisecond
-                {
-                    timestamp = WaitForNextMillis(lastTimestamp);
-                }
+                _sequence = (_sequence + 1) & SequenceMask;
+                if (_sequence == 0) // Sequence overflow, wait for next millisecond
+                    timestamp = WaitForNextMilliseconds(_lastTimestamp);
             }
             else
             {
-                sequence = 0;
+                _sequence = 0;
             }
 
-            lastTimestamp = timestamp;
+            _lastTimestamp = timestamp;
 
-            return ((timestamp - epoch) << (workerIdBits + datacenterIdBits + sequenceBits))
-                   | (DatacenterId << (workerIdBits + sequenceBits))
-                   | (WorkerId << sequenceBits)
-                   | sequence;
+            return ((timestamp - Epoch) << (WorkerIdBits + DatacenterIdBits + SequenceBits))
+                   | (DatacenterId << (WorkerIdBits + SequenceBits))
+                   | (WorkerId << SequenceBits)
+                   | _sequence;
         }
         finally
         {
-            if (lockTaken)
-            {
-                spinLock.Exit();
-            }
+            if (lockTaken) 
+                _spinLock.Exit();
         }
     }
 
-    private long GetCurrentTimestamp()
-    {
-        return DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
-    }
+    private static long GetCurrentTimestamp() => DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
 
-    private long WaitForNextMillis(long lastTimestamp)
+    private static long WaitForNextMilliseconds(long lastTimestamp)
     {
-        long timestamp = GetCurrentTimestamp();
-        while (timestamp <= lastTimestamp)
-        {
+        var timestamp = GetCurrentTimestamp();
+        while (timestamp <= lastTimestamp) 
             timestamp = GetCurrentTimestamp();
-        }
         return timestamp;
     }
 }
